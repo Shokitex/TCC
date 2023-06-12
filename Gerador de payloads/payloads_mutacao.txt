@@ -1,0 +1,60 @@
+" OR  = 1 --'
+" OR  = 1 --
+" OR  = 1 -
+" %OR 1 =  --
+" OR 1 = 1 --
+2 OR 1 = 1 --
+J"c GR 1= 1H --
+" OR`1= 1 --
+" O 1\ = 1--
+" O 1\ = 0--
+r" O \ =00--
+" OR1 = 1 --'
+" OR  =O 1 --
+" OR  = 1 --
+" OR  = 1 %-
+" OR 1 = 18 f--
+"`OR 1 = 1 --
+"ORl 1 = 1 --
+" O w1 =a 3 --
+" O w1(=a 3 --
+<script>alert('XSS')</scri`t>
+<script>aler('XSS')</script>
+<cript>ale('XSS')</scrhpt>
+<script>alet('XSS'</script>
+=criptalet('XSS'</script>
+<script>aer0t(&#39XSS')<M/script>
+<scrt>alert('XSS')</script>
+<scrt>alrt('XSS&#39)</sipt:
+<scvt>alrt('XSS&#39)</sipt:
+<sript>alert('XSS')</script>
+<script>alert('XSS')</scrip@t>
+<script>alebt('XSS')</script]>
+<script>lert$('XSS)</cript>
+<script>lert$(/XSS)</cript>
+F<script>alert('XSS')</script<
+<script>alert('XSS'</script>
+<script&gt;alert('XS'</script>
+<script&gt;alert('PS'</script>
+<script>alert('XSS'<{crip4>
+<script>alert('XSS'<zcrip4>
+"|| whoami
+" || hoami
+" x| whoami
+" || hoamh
+2 || wh<oami
+" || whoami
+" || whoamiT
+" S|{|0whoami
+\ | whoami
+" || whoadmi
+" ||(whoadmi
+" ~|(whoadmi
+" |l whoami
+" h| whXom>k
+&quot || whoami
+ || whoami
+n"(| whoami
+," || ~whoami
+," t| ~whoami
++," tt ~whoami
