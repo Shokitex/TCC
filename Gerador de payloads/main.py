@@ -26,7 +26,7 @@ RCE_GRAMMAR: Grammar = {
     "<S1>":
         ["curl", "cat", 'dir', 'echo', 'exec', 'eval', 'ipconfig', 'ls', 'nc -lvp 666', "ping"],
     "<S2>":
-        ["('ls')", "('pwd')", "onerror=”<S3>”", r"C:\Users",'''<?php include($_GET['main.php']); ?>" > rfi.php''', "('whoami')", r"<img src=http://google.com onload=prompt(2) onerror=alert(3)> batata", "/etc/passwd", "/etc/hosts", "http://google.com", "|id|", "/usr/bin/id", "localhost"], #<img> = batata
+        ["('ls')", "('pwd')", "onerror=”<S3>”", r"C:\Users",'''<?php include($_GET['main.php']); ?>" > rfi.php''', "('whoami')", "<img src=http://google.com onload=prompt(2) onerror=alert(3)>", "/etc/passwd", "/etc/hosts", "http://google.com", "|id|", "/usr/bin/id", "localhost"], #<img> = batata
     "<S3>":
         ["| <S2>"],
 }
@@ -55,7 +55,7 @@ for i in range(20):
     print(simple_grammar_fuzzer(grammar=js_GRAMMAR, max_nonterminals=20))
     
 print("Geração baseada em Mutação Aleatória")
-seed_input = '' #A seed inserida será mutada. Exemplos de seeds: 1' or '1'='1 , <script>alert('XSS')</script> e " || whoami
+seed_input = '' #A seed inserida será mutada. Exemplos de seeds: " OR 1 = 1 -- , <script>alert('XSS')</script> e " || whoami
 mutation_fuzzer = MutationFuzzer(seed=[seed_input])
 for i in range(20):
     #Geração de 20 payloads  
