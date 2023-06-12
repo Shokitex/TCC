@@ -7,25 +7,24 @@ import time
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import json
 import hashlib
+import requests
 
-url = "http://192.168.50.131:3000/#/"
+url = "http://192.168.50.131:3000/#/" #Endereço do alvo hospedado localmente.
 
-wordlist_path = "directory-list-2.3-small.txt"
+
+wordlist_path = "directory-list-2.3-small.txt" #Diretório utilizado para crawling. Disponível em: https://github.com/daviddias/node-dirbuster/blob/master/lists/directory-list-2.3-small.txt
 
 service = Service("chromedriver.exe")
 options = webdriver.ChromeOptions()
 # options.add_argument("--silent-launch")
 
-# capabilities = DesiredCapabilities.CHROME.copy()
-# capabilities['goog:loggingPrefs'] = {'performance': 'ALL'}
+driver = webdriver.Chrome(service=service, options=options)  
 
-
-driver = webdriver.Chrome(service=service, options=options)  # desired_capabilities=capabilities
-import requests
 
 driver.get("http://192.168.50.131:3000/#/login")
 name = driver.find_element(By.ID, "email")
-name.send_keys('a@a.com')
+#A conta de usuário a@a.com e senha 123123 foi criada previamente.
+name.send_keys('a@a.com')  
 time.sleep(3)
 passw = driver.find_element(By.ID, "password")
 passw.send_keys('123123')
@@ -36,32 +35,26 @@ print("LOGIN FEITO!")
 
 hashes = []
 
+#O acesso de subdiretórios e cliques em botões que levam para outras páginas não são suportados pelo Crawler implementado.
 with open(wordlist_path, 'r') as wordlist_file:
-    # Lê cada linha da wordlist
     for linha in wordlist_file:
-        diretorio = linha.strip()  # Remove espaços em branco e quebras de linha
+        diretorio = linha.strip() 
         full_url = url + diretorio
-        # print('testando',full_url)
         driver.get(full_url)
-        # logs = driver.get_log('browser')
-        # print(logs)
-        # response = requests.get(full_url)
         content = driver.page_source.encode('utf-8')
         page_hash = hashlib.md5(content).hexdigest()
 
-        if page_hash in hashes:
-            # print("Página duplicada encontrada:", url)
+        if page_hash in hashes: #Evita páginas duplicadas através da comparação de valores hash.
             pass
         else:
             hashes.append(page_hash)
-
+            #A geração de casos de teste está embasado na técnica de fuzzing, a qual baseia-se em strings, logo, não buscando por botões, por exemplo.
             element1 = driver.find_elements(By.TAG_NAME, "input")
             element2 = driver.find_elements(By.TAG_NAME, "textarea")
 
             if element1:
-                # print(element)
                 print(full_url)
-                # print('[+] Campos encontrados:')
+                print('[+] Campos encontrados:')
                 for i in element1:
                     if i.get_property("type") == "checkbox":
                         pass
