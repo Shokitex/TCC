@@ -116,7 +116,6 @@ def encode_random_character(s):
 
 
 def mutate(s: str) -> str:
-    """Return s with a random mutation applied"""
     mutators = [
         delete_random_character,
         insert_random_character,
